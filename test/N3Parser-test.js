@@ -1486,6 +1486,11 @@ describe('Parser', function () {
                   ['_:b3', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#rest', 'http://www.w3.org/1999/02/22-rdf-syntax-ns#nil'],
                   ['_:b2', 'f:son', 'ex:joe']));
 
+    it('should parse graph predicate', shouldParse(parser,
+        '<a> <gives> { ( (<one>) 1 ) <findAll> ( <b> { <b> a <type>. <b> <something> "foo" } ( <o> ) ) }',
+        []
+    ));
+
     it('should not parse an invalid ! path',
       shouldNotParse(parser, '<a>!"invalid" ', 'Expected entity but got literal on line 1.'));
 
